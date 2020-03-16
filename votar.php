@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("conexao.php");
+include_once("verify_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,8 +11,11 @@ include_once("conexao.php");
 		<title> Votacao </title>
 	</head>
 	<body>
-		<h1 style="font-family:Arial"> Lista de Processos em Votação </h1>
+		<h1> Lista de Processos em Votação </h1>
 		<?php
+		echo "<h3>" .$_SESSION['usuario']. "<br> <a href='logout.php'> 
+			Sair </a> <br></h3>";;
+
 		if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg']."<br><br>";
 			unset($_SESSION['msg']);

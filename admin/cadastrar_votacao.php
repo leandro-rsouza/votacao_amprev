@@ -10,14 +10,16 @@ include_once("verify_login.php");
 	<title> Cadastro </title>
 </head>
 <body>
-	<h1 style="font-family:Arial"> Cadastrar Processo de Votação </h1> <hr>
+	<h1> Cadastrar Processo de Votação </h1> <hr>
 <fieldset>
+
 	<?php
 		if(isset($_SESSION['cadastrado'])){
 			echo "<p align='center'> " .$_SESSION['cadastrado']." </p>";
 			unset($_SESSION['cadastrado']);
 		}
 	?>
+	
 <table  align="center" style="font-family:Arial">
 	<form method="POST" action="cadastro_votacao.php"> 
 	<tr>  

@@ -7,16 +7,13 @@
 	<title> Amprev Votação </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 </head>
-<body style="font-family:Arial">
-<p> <b style="font-size: 21pt"> AMPREV </b> <br> Amapá Previdência </p>
-<hr> <br> <br> 	
+<body>
 
-<div>
-<fieldset>
+<div style="border: 1; border-color: black;">
 <?php
-	if(isset($_SESSION['status_usuario'])){
-		echo "<p align='center'>" .$_SESSION['status_usuario']. "</p>";
-		unset($_SESSION['status_usuario']);
+	if(isset($_SESSION['incorret'])){
+		echo "<p align='center'>" .$_SESSION['incorret']. "</p>";
+		unset($_SESSION['incorret']);
 	}
 ?>
 <h2 align="center"> LOGIN </h2>
@@ -38,8 +35,6 @@
 	</tr>
 </form>
 </table>
-	<p align="center"> <a href="cadastrar.php"> Criar Conta </a> </p>
-</fieldset>
 
 </div>
 </body>

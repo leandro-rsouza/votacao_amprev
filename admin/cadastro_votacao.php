@@ -2,8 +2,9 @@
 session_start();
 include_once("conexao.php");
 
-	$nome = ucwords(trim($_POST["nome_votacao"]));
-
+	$nome = mysqli_real_escape_string($conn, ucwords(trim($_POST['nome_votacao'])));
+	$total = $_POST['total_votos'];
+	
 	$result_processo = "INSERT INTO processos (nome) VALUES ('$nome')";
 	$resultado_processo = mysqli_query($conn, $result_processo) or die ("Erro ao Cadastrar!");
 

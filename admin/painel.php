@@ -11,22 +11,29 @@ include_once("verify_login.php");
 		<title> Votacao </title>
 	</head>
 	<body>
-		<h1 style="font-family:Arial"> Lista de Processos em Votação </h1>
-		<a href='cadastrar_votacao.php'> Cadastrar Processo de Votação </a>
+		<h1> Lista de Processos em Votação </h1>
+		<a href='cadastrar_votacao.php'> Cadastrar Processo de Votação </a> <br>
 		<a href='cadastrar.php'> Cadastrar Usuario Administrador </a><br><br><hr>
 		<?php
-		echo "<h3>" .$_SESSION['usuario_admin']. "</h3>";
-		echo "<a href='logout.php'> Sair </a>";
+		echo "<h3>" .$_SESSION['usuario_admin']. "<br> <a href='logout.php'> 
+			Sair </a> <br></h3>";
+			
 		//Pesquisar os processos
 		if(isset($_SESSION['msg'])){
 			echo "<br>" .$_SESSION['msg']."<br> <br>";
 			unset($_SESSION['msg']);
 		}
+
+		if(isset($_SESSION['apagado'])){
+			echo "<br>" .$_SESSION['apagado']."<br> <br>";
+			unset($_SESSION['apagado']);
+		}
+
 		$result_processo = "SELECT * FROM processos";
 		$resultado_processo = mysqli_query($conn, $result_processo);
 		
 		while($row_processo = mysqli_fetch_assoc($resultado_processo)){
-		echo "<table border='1' cellpadding='7' cellspacing='0' align='center'  style='font-family:Arial; font-size: 12pt'>";
+		echo "<table border='1' cellpadding='7' cellspacing='0' align='center'  style='font-family:Arial; font-size: 12pt;'>";
 		echo "<tr  align='center'  height='50'>";	
 			echo "<td> Número do Processo:  </td>";
 			echo "<td> Processo em Votação:  </td>";
@@ -53,6 +60,8 @@ include_once("verify_login.php");
 			echo " <td> <a href='votar_sim.php?id=".$row_processo['id']."'> Sim </a> </td>";
 			echo " <td> <a href='votar_nao.php?id=".$row_processo['id']."'> Não </a> </td>";
 			echo " <td> <a href='votar_abs.php?id=".$row_processo['id']."'> Abstenção </a> </td>";
+			echo " <td> <a href='deletar.php?id=".$row_processo['id']."'> Deletar </a> </td>";
+			echo " <td> <a href='alterar.php?id=".$row_processo['id']."'> Alterar </a> </td>";
 		echo "</tr>";
 		echo "</table> <br> <hr>";
 		}

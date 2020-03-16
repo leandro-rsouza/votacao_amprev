@@ -1,6 +1,5 @@
 <?php
-
-	setcookie('voto_cont', $_SERVER['REMOTE_ADDR'], time() + 1);
+	setcookie('voto_cont', $_SESSION['usuario'], time() + 1);
 
 	$result_processo = "UPDATE processos SET qnt_voto=qnt_voto + 1
 	WHERE id ='".$_GET['id']."'"; 
@@ -10,8 +9,7 @@
 		$_SESSION['msg'] = "<span style='color: green'>Voto recebido com sucesso!</span>";
 		header("Location: votar.php");
 	}else{
-		$_SESSION['msg'] = "<span style='color: red'> Erro ao votar! </span>";
+		$_SESSION['msg'] = "<span style='color: red'> Erro ao Votar!</span>";
 		header("Location: votar.php");
 	}
-	
 ?>

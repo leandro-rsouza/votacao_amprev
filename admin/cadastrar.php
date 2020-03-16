@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once("conexao.php");
-include_once("verify_login.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,9 +8,6 @@ include_once("verify_login.php");
 	<title> Cadastro </title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 </head>
-<body style="font-family:Arial">
-<p> <b style="font-size: 21pt"> AMPREV </b> <br> Amapá Previdência </p>
-<hr> <br> <br> 
 
 <fieldset>
 	<?php
